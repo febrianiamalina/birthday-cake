@@ -51,19 +51,67 @@
       color: #6a0572;
       display: block;  /* Make the message visible initially */
     }
+  #openLetter {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    #letter {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff0f5;
+      border: 2px solid #d6336c;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #6a0572;
+      font-family: 'Courier New', cursive;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
 
 <h1>🎉 Happy Birthday! 🎉</h1>
 <p>Blow out the candle!</p>
+
 <div id="cake">
   <div class="candle">
     <div class="flame" id="flame"></div>
   </div>
   <img src="https://raw.githubusercontent.com/febrianiamalina/birthday-cake/main/rustic-pastel-cakes-1080x1080-1.jpg" alt="Cake" width="200">
 </div>
+
 <div id="message">Make a wish! ✨</div>
+
+<button id="openLetter">💌 Open Your Birthday Letter</button>
+
+<div id="letter">
+  <h2 style="margin-top: 0;">💖 Hello Lion Hripsime!</h2>
+  <p style="text-align: left;">
+    After three years celebrating your birthday together, fate has put us a thousand miles away this year, so sorry, but Armenia is too far away to bring you a cake.  
+    But I hope you like the video :) The message in the video basically says that you’re many things, but one of a kind.  
+
+    I don’t have much to say — I'm just forever grateful to have you as a friend.  
+    I wish from today on, you will get everything you wish for, be less sick and healthier, stress less and smile more (not too much because we don’t want to make too many people insecure).  
+
+    So, happy birthday! Keep aging like wine :)
+
+    – Your annoying friend,  
+    Febri
+  </p>
+</div>
 
 <script>
   async function listenForBlow() {
@@ -79,9 +127,10 @@
       analyser.getByteFrequencyData(data);
       const volume = data.reduce((a, b) => a + b) / data.length;
 
-      if (volume > 30) { // Threshold, tweak as needed
+      if (volume > 30) { // Threshold
         document.getElementById('flame').style.display = 'none';
-        document.getElementById('message').style.display = 'none';  // Hide the message after blowing the candle
+        document.getElementById('message').style.display = 'none';
+        document.getElementById('openLetter').style.display = 'inline-block';
         stream.getTracks().forEach(track => track.stop());
       } else {
         requestAnimationFrame(checkVolume);
@@ -92,6 +141,12 @@
   }
 
   listenForBlow();
+
+  document.getElementById('openLetter').addEventListener('click', () => {
+    const letter = document.getElementById('letter');
+    letter.style.display = 'block';
+    document.getElementById('openLetter').style.display = 'none';
+  });
 </script>
 
 </body>
