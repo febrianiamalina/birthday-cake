@@ -25,7 +25,7 @@
       background: #ff6f61;
       position: absolute;
       left: 50%;
-      top: 30px;
+      top: 20px;  /* Move candle up to be higher on the cake */
       transform: translateX(-50%);
     }
     .flame {
@@ -48,7 +48,7 @@
       font-size: 1.5em;
       margin-top: 20px;
       color: #6a0572;
-      display: none;
+      display: block;  /* Make the message visible initially */
     }
   </style>
 </head>
@@ -80,7 +80,7 @@
 
       if (volume > 30) { // Threshold, tweak as needed
         document.getElementById('flame').style.display = 'none';
-        document.getElementById('message').style.display = 'block';
+        document.getElementById('message').style.display = 'none';  // Hide the message after blowing the candle
         stream.getTracks().forEach(track => track.stop());
       } else {
         requestAnimationFrame(checkVolume);
