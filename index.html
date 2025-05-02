@@ -137,6 +137,11 @@
         document.getElementById('flame').style.display = 'none';
         document.getElementById('message').style.display = 'none';
         document.getElementById('openLetter').style.display = 'inline-block';
+
+        // Play the birthday song
+        const song = document.getElementById('birthdaySong');
+        song.play();  // Play the music
+
         stream.getTracks().forEach(track => track.stop());
       } else {
         requestAnimationFrame(checkVolume);
