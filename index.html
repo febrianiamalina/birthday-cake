@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Happy Birthday!</title>
   <style>
@@ -63,22 +64,25 @@
       cursor: pointer;
     }
 
-    #letter {
-      display: none;
-      margin-top: 30px;
-      padding: 20px;
-      background: #fff0f5;
-      border: 2px solid #d6336c;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #6a0572;
-      font-family: 'Courier New', cursive;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      white-space: pre-wrap;
-    }
+#letter {
+  display: none;
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff0f5;
+  border: 2px solid #d6336c;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #6a0572;
+  font-family: 'Pacifico', cursive;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
   </style>
 </head>
 <body>
@@ -143,10 +147,14 @@
   listenForBlow();
 
   document.getElementById('openLetter').addEventListener('click', () => {
-    const letter = document.getElementById('letter');
-    letter.style.display = 'block';
-    document.getElementById('openLetter').style.display = 'none';
-  });
+  const letter = document.getElementById('letter');
+  letter.style.display = 'block';
+  setTimeout(() => {
+    letter.style.opacity = '1';
+    letter.style.transform = 'translateY(0)';
+  }, 50);
+  document.getElementById('openLetter').style.display = 'none';
+});
 </script>
 
 </body>
