@@ -117,6 +117,8 @@
   </p>
 </div>
 
+<audio id="birthdaySong" src="https://febrianiamalina.github.io/birthday-cake/happy-birthday-music-300687.mp3" preload="auto"></audio>
+
 <script>
   async function listenForBlow() {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -155,9 +157,9 @@
   }, 50);
   document.getElementById('openLetter').style.display = 'none';
 });
+  
 </script>
 
-<audio id="birthdaySong" src="audio/happy-birthday-music-300687.mp3" preload="auto"></audio>
   
 </body>
 </html>
